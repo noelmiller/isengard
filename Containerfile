@@ -124,18 +124,6 @@ RUN rpm-ostree override replace \
     rpm-ostree override replace \
     --experimental \
     --from repo=updates \
-        pipewire \
-        pipewire-alsa \
-        pipewire-gstreamer \
-        pipewire-jack-audio-connection-kit \
-        pipewire-jack-audio-connection-kit-libs \
-        pipewire-libs \
-        pipewire-pulseaudio \
-        pipewire-utils \
-        || true && \
-    rpm-ostree override replace \
-    --experimental \
-    --from repo=updates \
         gstreamer1 \
         gstreamer1-plugins-base \
         gstreamer1-plugins-bad-free-libs \
@@ -161,9 +149,39 @@ RUN rpm-ostree override replace \
     --from repo=updates \
         libtirpc \
         || true && \
+    rpm-ostree override replace \
+    --experimental \
+    --from repo=updates \
+        libmount \
+        || true
     rpm-ostree override remove \
         glibc32 \
         || true
+
+# Install Valve's patched Mesa, Pipewire and Bluez
+# Install ublue patched power-profiles-daemon and fontconfig
+RUN rpm-ostree override replace \
+    --experimental \
+    --from repo=copr:copr.fedorainfracloud.org:kylegospo:bazzite-multilib \
+        mesa-filesystem \
+        mesa-dri-drivers \
+        mesa-libEGL \
+        mesa-libgbm \
+        mesa-libGL \
+        mesa-libglapi \
+        mesa-vulkan-drivers \
+        mesa-libOSMesa \
+        pipewire \
+        pipewire-alsa \
+        pipewire-gstreamer \
+        pipewire-jack-audio-connection-kit \
+        pipewire-jack-audio-connection-kit-libs \
+        pipewire-libs \
+        pipewire-pulseaudio \
+        pipewire-utils && \
+    rpm-ostree override replace \
+    --experimental \
+    --from repo=copr:c
 
 ## Remove unneeded packages
 RUN rpm-ostree override remove \
