@@ -334,7 +334,6 @@ RUN rpm-ostree override remove \
         plasma-welcome \
         qt5-qdbusviewer && \
     rpm-ostree install \
-        steamdeck-kde-presets-desktop \
         kdeconnectd \
         kdeplasma-addons \
         rom-properties-kf5 \
