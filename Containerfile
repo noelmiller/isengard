@@ -314,7 +314,6 @@ RUN rpm-ostree override remove \
 ### 5. POST-MODIFICATIONS
 ## these commands leave the image in a clean state after local modifications
 # Cleanup & Finalize
-COPY system_files/shared /
 RUN /tmp/image-info.sh && \
     rm -f /etc/profile.d/toolbox.sh && \
     sed -i 's@\[Desktop Entry\]@\[Desktop Entry\]\nNoDisplay=true@g' /usr/share/applications/shredder.desktop && \
@@ -353,14 +352,11 @@ RUN /tmp/image-info.sh && \
     systemctl disable rpm-ostreed-automatic.timer && \
     systemctl enable ublue-update.timer && \
     systemctl enable incus-workaround.service && \
-    systemctl enable bazzite-hardware-setup.service && \
     systemctl enable tailscaled.service && \
     systemctl enable dev-hugepages1G.mount && \
     systemctl enable joycond && \
-    systemctl --global enable bazzite-user-setup.service && \
     sed -i '/^PRETTY_NAME/s/Kinoite/Isengard/' /usr/lib/os-release && \
     systemctl --global enable com.system76.Scheduler.dbusproxy.service && \
-    rm /usr/share/wayland-sessions/weston.desktop && \
     mkdir -p /usr/etc/default && \
     rm -rf \
         /tmp/* \
