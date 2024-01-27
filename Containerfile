@@ -152,8 +152,18 @@ RUN rpm-ostree override replace \
     rpm-ostree override replace \
     --experimental \
     --from repo=updates \
+        libuuid \
+        || true && \
+    rpm-ostree override replace \
+    --experimental \
+    --from repo=updates \
+        libblkid \
+        || true && \
+    rpm-ostree override replace \
+    --experimental \
+    --from repo=updates \
         libmount \
-        || true
+        || true && \
     rpm-ostree override remove \
         glibc32 \
         || true
@@ -181,7 +191,8 @@ RUN rpm-ostree override replace \
         pipewire-utils && \
     rpm-ostree override replace \
     --experimental \
-    --from repo=copr:c
+    --from repo=copr:copr.fedorainfracloud.org:ublue-os:staging \
+        fontconfig
 
 ## Remove unneeded packages
 RUN rpm-ostree override remove \
