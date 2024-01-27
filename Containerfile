@@ -124,6 +124,18 @@ RUN rpm-ostree override replace \
     rpm-ostree override replace \
     --experimental \
     --from repo=updates \
+        pipewire \
+        pipewire-alsa \
+        pipewire-gstreamer \
+        pipewire-jack-audio-connection-kit \
+        pipewire-jack-audio-connection-kit-libs \
+        pipewire-libs \
+        pipewire-pulseaudio \
+        pipewire-utils \
+        || true && \
+    rpm-ostree override replace \
+    --experimental \
+    --from repo=updates \
         gstreamer1 \
         gstreamer1-plugins-base \
         gstreamer1-plugins-bad-free-libs \
