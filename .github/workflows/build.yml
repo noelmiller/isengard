@@ -17,10 +17,10 @@ on:
 # The values here are defaults and should be modified if using a different image, needing
 # nvidia, a specific nvidia driver, or a different Fedora version.
 env:
-  MY_IMAGE_NAME: "custom-silverblue"  # the name of the image produced by this build
-  ARG_SOURCE_IMAGE: "silverblue"  # see Containerfile for list of possible upstream images
+  MY_IMAGE_NAME: "isengard"  # the name of the image produced by this build
+  ARG_SOURCE_IMAGE: "kinoite"  # see Containerfile for list of possible upstream images
   ARG_SOURCE_SUFFIX: "main"  # see Containerfile
-  ARG_FEDORA_VERSION: "38"  # see Containerfile
+  ARG_FEDORA_VERSION: "39"  # see Containerfile
   ARG_NVIDIA_VERSION: ""  # see Containerfile
   IMAGE_REGISTRY: "ghcr.io/${{ github.repository_owner }}"  # do not edit
 
