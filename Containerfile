@@ -327,7 +327,7 @@ RUN rpm-ostree install \
         gperftools-libs.i686 \
         goverlay \
         obs-vkcapture.x86_64 \
-        obs-vkcapture.i686 \ 
+        obs-vkcapture.i686
 
 ## Configure KDE & GNOME
 RUN rpm-ostree override remove \
