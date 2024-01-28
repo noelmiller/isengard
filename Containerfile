@@ -164,8 +164,8 @@ RUN rpm-ostree override replace \
         glibc32 \
         || true
 
-# Install Valve's patched Mesa, Pipewire and Bluez
-# Install ublue patched power-profiles-daemon and fontconfig
+# Install Valve's patched Mesa and Pipewire
+# Install ublue patched fontconfig
 RUN rpm-ostree override replace \
     --experimental \
     --from repo=copr:copr.fedorainfracloud.org:kylegospo:bazzite-multilib \
@@ -212,6 +212,7 @@ RUN rpm-ostree install \
         virt-install \
         virt-manager \
         virt-viewer \
+        syncthing \
         python3-pip \
         libadwaita \
         duperemove \
