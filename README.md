@@ -1,3 +1,5 @@
+![Isengard Logo](assets/logo.jpg)
+
 # Isengard
 
 Custom Fedora Atomic Image for my Desktop and Laptops. This is my take on what the modern Linux Desktop should look like.
