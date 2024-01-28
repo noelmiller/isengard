@@ -32,7 +32,6 @@ RUN mkdir -p /var/lib/alternatives
 COPY system_files /
 
 ## Setup Copr Repositories
-### Double check with Kyle
 RUN wget https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite/repo/fedora-$(rpm -E %fedora)/kylegospo-bazzite-fedora-$(rpm -E %fedora).repo -O /etc/yum.repos.d/_copr_kylegospo-bazzite.repo && \
     wget https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite-multilib/repo/fedora-$(rpm -E %fedora)/kylegospo-bazzite-multilib-fedora-$(rpm -E %fedora).repo?arch=x86_64 -O /etc/yum.repos.d/_copr_kylegospo-bazzite-multilib.repo && \
     wget https://copr.fedorainfracloud.org/coprs/kylegospo/vk_hdr_layer/repo/fedora-$(rpm -E %fedora)/kylegospo-vk_hdr_layer-fedora-$(rpm -E %fedora).repo?arch=x86_64 -O /etc/yum.repos.d/_copr_kylegospo-vk_hdr_layer.repo && \
@@ -47,10 +46,7 @@ RUN wget https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite/repo/fedora-$
     wget https://copr.fedorainfracloud.org/coprs/kylegospo/VTFLib/repo/fedora-$(rpm -E %fedora)/kylegospo-VTFLib-fedora-$(rpm -E %fedora).repo -O /etc/yum.repos.d/_copr_kylegospo-VTFLib.repo && \
     wget https://copr.fedorainfracloud.org/coprs/kylegospo/webapp-manager/repo/fedora-$(rpm -E %fedora)/kylegospo-webapp-manager-fedora-$(rpm -E %fedora).repo -O /etc/yum.repos.d/_copr_kylegospo-webapp-manager.repo && \
     wget https://copr.fedorainfracloud.org/coprs/che/nerd-fonts/repo/fedora-$(rpm -E %fedora)/che-nerd-fonts-fedora-$(rpm -E %fedora).repo -O /etc/yum.repos.d/_copr_che-nerd-fonts.repo && \
-    wget https://copr.fedorainfracloud.org/coprs/ycollet/audinux/repo/fedora-$(rpm -E %fedora)/ycollet-audinux-fedora-$(rpm -E %fedora).repo -O /etc/yum.repos.d/_copr_ycollet-audinux.repo && \
-    wget https://pkgs.tailscale.com/stable/fedora/tailscale.repo -O /etc/yum.repos.d/tailscale.repo && \
-    sed -i 's@gpgcheck=1@gpgcheck=0@g' /etc/yum.repos.d/tailscale.repo && \
-    sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+    wget https://copr.fedorainfracloud.org/coprs/ycollet/audinux/repo/fedora-$(rpm -E %fedora)/ycollet-audinux-fedora-$(rpm -E %fedora).repo -O /etc/yum.repos.d/_copr_ycollet-audinux.repo \
 
 ### 4. MODIFICATIONS
 ## make modifications desired in your image and install packages here, a few examples follow
@@ -89,7 +85,7 @@ RUN sed -i 's@enabled=0@enabled=1@g' /etc/yum.repos.d/_copr_ublue-os-akmods.repo
     rpm-ostree install \
         /tmp/akmods-rpms/kmods/*xone*.rpm
 
-## Update packages that commonly cause build issues
+## Update packages that commonly cause build issues for Steam
 RUN rpm-ostree override replace \
     --experimental \
     --from repo=updates \
