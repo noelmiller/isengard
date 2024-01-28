@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 # SCRIPT VERSION
-VER=17
+VER=18
 VER_FILE="/etc/isengard/flatpak_manager_version"
 VER_RAN=$(cat $VER_FILE)
 IMAGE_INFO="/usr/share/ublue-os/image-info.json"
@@ -61,6 +61,11 @@ flatpak override \
 flatpak override \
   --filesystem=xdg-config/Mangohud:ro \
   --filesystem=xdg-config/vkBasalt:ro
+
+# Fix permissions for XIV Launcher
+flatpak override \
+  --device=dri \
+  dev.goats.xivlauncher
 
 # Install flatpaks in list
 if [[ -f $INSTALL_LIST_FILE ]]; then
