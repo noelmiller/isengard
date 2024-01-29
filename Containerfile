@@ -205,6 +205,7 @@ RUN rpm-ostree override remove \
 
 ## Install new packages
 RUN rpm-ostree install \
+        gh \
         cockpit \
         code \
         libguestfs-tools \
