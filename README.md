@@ -88,6 +88,10 @@ A collection of kernel modules packaged by Universal Blue. These help with hardw
 - Yuzu
 - Dolphin Emulator
 
+#### Design
+
+- Inkscape
+
 ## How to Use the Image
 
 If you do decide you want to try my image, you will want to rebase from Fedora Kinoite using this command:
