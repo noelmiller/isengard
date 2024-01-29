@@ -200,6 +200,7 @@ RUN rpm-ostree override remove \
 
 ## Install new packages
 RUN rpm-ostree install \
+        subscription-manager \
         gh \
         cockpit \
         code \
