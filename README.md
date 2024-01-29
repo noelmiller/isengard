@@ -41,6 +41,7 @@ A collection of kernel modules packaged by Universal Blue. These help with hardw
 - Libvirtd, Qemu, and Virt-Manager
 - Cockpit (disabled by default)
 - Tailscale
+- Subscription-Manager (For running RHEL containers)
 
 #### Programming
 
@@ -91,6 +92,7 @@ A collection of kernel modules packaged by Universal Blue. These help with hardw
 #### Design
 
 - Inkscape
+- Gimp
 
 ## How to Use the Image
 
