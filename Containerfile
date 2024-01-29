@@ -165,7 +165,6 @@ RUN rpm-ostree override replace \
         || true
 
 # Install Valve's patched Mesa and Pipewire
-# Install ublue patched fontconfig
 RUN rpm-ostree override replace \
     --experimental \
     --from repo=copr:copr.fedorainfracloud.org:kylegospo:bazzite-multilib \
@@ -184,11 +183,7 @@ RUN rpm-ostree override replace \
         pipewire-jack-audio-connection-kit-libs \
         pipewire-libs \
         pipewire-pulseaudio \
-        pipewire-utils && \
-    rpm-ostree override replace \
-    --experimental \
-    --from repo=copr:copr.fedorainfracloud.org:ublue-os:staging \
-        fontconfig
+        pipewire-utils
 
 ## Remove unneeded packages
 RUN rpm-ostree override remove \
