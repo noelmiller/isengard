@@ -2,7 +2,7 @@
 Type=Application
 Name=System Update
 Comment=Update Isengard, Flatpaks, Distrobox containers, and more
-Icon=/usr/share/ublue-os/isengard/update.svg
+Icon=/usr/share/ublue-os/isengard/update.png
 Categories=ConsoleOnly;System;
 Terminal=true
 Exec=/usr/bin/ujust update
