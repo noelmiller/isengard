@@ -1,0 +1,6 @@
+# Artifact Hub repository metadata file
+# Used to become verified publisher and more - https://artifacthub.io/docs/topics/repositories/#verified-publisher
+repositoryID: 45385f79-ffe6-491d-b350-7ee9cb720717
+owners:
+  - name: Noel Miller
+    email: noelmiller@protonmail.com
