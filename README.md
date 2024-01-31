@@ -1,6 +1,7 @@
 ![Isengard Logo](assets/logo.jpg)
 
 # Isengard
+[![build-ublue-custom](https://github.com/noelmiller/isengard/actions/workflows/build.yml/badge.svg)](https://github.com/noelmiller/isengard/actions/workflows/build.yml) [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/isengard)](https://artifacthub.io/packages/search?repo=isengard)
 
 Custom Fedora Atomic Image for my Desktop and Laptops. This is my take on what the modern Linux Desktop should look like.
 
