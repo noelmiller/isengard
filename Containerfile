@@ -163,10 +163,6 @@ RUN rpm-ostree override replace \
     --experimental \
     --from repo=updates \
         glibc \
-        || true && \
-    rpm-ostree override replace \
-    --experimental \
-    --from repo=updates \
         glibc-common \
         || true && \
     rpm-ostree override remove \
