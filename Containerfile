@@ -288,7 +288,6 @@ RUN rpm-ostree install \
         at-spi2-core.i686 \
         atk.i686 \
         vulkan-loader.i686 \
-        mesa-vulkan-drivers.i686 \
         alsa-lib.i686 \
         fontconfig.i686 \
         gtk2.i686 \
@@ -316,6 +315,7 @@ RUN rpm-ostree install \
     sed -i '0,/enabled=1/s//enabled=0/' /etc/yum.repos.d/rpmfusion-nonfree-updates.repo && \
     sed -i '0,/enabled=1/s//enabled=0/' /etc/yum.repos.d/fedora-updates.repo && \
     rpm-ostree install \
+        mesa-vulkan-drivers.i686 \
         steam && \
     sed -i '0,/enabled=1/s//enabled=0/' /etc/yum.repos.d/rpmfusion-nonfree-steam.repo && \
     sed -i '0,/enabled=0/s//enabled=1/' /etc/yum.repos.d/rpmfusion-nonfree.repo && \
