@@ -208,6 +208,7 @@ RUN rpm-ostree override remove \
 ## Install new packages
 RUN rpm-ostree install \
         subscription-manager \
+        cockpit-navigator \
         cockpit-bridge \
         cockpit-system \
         cockpit-selinux \
