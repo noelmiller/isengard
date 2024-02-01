@@ -165,6 +165,7 @@ RUN rpm-ostree override replace \
         glibc \
         glibc-common \
         glibc-all-langpacks \
+        glibc-gconv-extra \
         || true && \
     rpm-ostree override remove \
         glibc32 \
