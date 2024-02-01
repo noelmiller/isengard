@@ -164,6 +164,7 @@ RUN rpm-ostree override replace \
     --from repo=updates \
         glibc \
         glibc-common \
+        glibc-all-langpacks \
         || true && \
     rpm-ostree override remove \
         glibc32 \
