@@ -16,7 +16,7 @@ com.obsproject.Studio.Plugin.Gstreamer
 com.obsproject.Studio.Plugin.GStreamerVaapi
 com.slack.Slack
 com.discordapp.Discord
-im.riot.Riot
+org.kde.neochat
 org.signal.Signal
 io.podman_desktop.PodmanDesktop
 org.videolan.VLC
