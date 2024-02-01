@@ -159,6 +159,11 @@ RUN rpm-ostree override replace \
     --from repo=updates \
         libmount \
         || true && \
+    rpm-ostree override replace \
+    --experimental \
+    --from repo=updates \
+        glibc-common \
+        || true && \
     rpm-ostree override remove \
         glibc32 \
         || true
@@ -200,8 +205,15 @@ RUN rpm-ostree override remove \
 ## Install new packages
 RUN rpm-ostree install \
         subscription-manager \
+        cockpit-bridge \
+        cockpit-system \
+        cockpit-selinux \
+        cockpit-networkmanager \
+        cockpit-storaged \
+        cockpit-podman \
+        cockpit-machines \
+        cockpit-kdump \
         gh \
-        cockpit \
         code \
         libguestfs-tools \
         NetworkManager-tui \
