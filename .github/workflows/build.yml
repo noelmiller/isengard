@@ -1,5 +1,5 @@
 ---
-name: build-ublue-custom
+name: build-isengard
 on:
   pull_request:
     branches:
@@ -10,7 +10,8 @@ on:
     branches:
       - main
     paths-ignore:
-      - '**/README.md'
+      - '**.md'
+      - '**.txt'
   workflow_dispatch:
 
 # The env variables starting with "ARG_" are described in the Containerfile of this repo.
