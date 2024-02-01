@@ -1,7 +1,7 @@
 ![Isengard Logo](assets/logo.jpg)
 
 # Isengard
-[![build-ublue-custom](https://github.com/noelmiller/isengard/actions/workflows/build.yml/badge.svg)](https://github.com/noelmiller/isengard/actions/workflows/build.yml) [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/isengard)](https://artifacthub.io/packages/search?repo=isengard)
+[![build-isengard](https://github.com/noelmiller/isengard/actions/workflows/build.yml/badge.svg)](https://github.com/noelmiller/isengard/actions/workflows/build.yml) [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/isengard)](https://artifacthub.io/packages/search?repo=isengard)
 
 Custom Fedora Atomic Image for my Desktop and Laptops. This is my take on what the modern Linux Desktop should look like.
 
@@ -40,9 +40,18 @@ A collection of kernel modules packaged by Universal Blue. These help with hardw
 #### System Administrator
 
 - Libvirtd, Qemu, and Virt-Manager
-- Cockpit (disabled by default)
 - Tailscale
 - Subscription-Manager (For running RHEL containers)
+- Cockpit Plugins
+  - cockpit-navigator
+  - cockpit-bridge
+  - cockpit-system
+  - cockpit-selinux
+  - cockpit-networkmanager
+  - cockpit-storaged
+  - cockpit-podman
+  - cockpit-machines
+  - cockpit-kdump
 
 #### Programming
 
@@ -95,7 +104,31 @@ A collection of kernel modules packaged by Universal Blue. These help with hardw
 - Inkscape
 - Gimp
 
-## How to Use the Image
+## Cockpit
+
+I do not enable cockpit by default as I use this image on my laptop as well.
+
+### Caveat
+
+Cockpit is not installed in the traditional way it normally is on Fedora Workstation. It must be run in a container. You can still run it as a service on boot, but the install method is different.
+
+### Install and Configure Cockpit
+
+Here are the steps required:
+
+1. Run the Cockpit web service with a privileged container (as root):
+
+`podman container runlabel --name cockpit-ws RUN quay.io/cockpit/ws`
+
+2. Make Cockpit start on boot (as root):
+
+`podman container runlabel INSTALL quay.io/cockpit/ws`
+
+`systemctl enable cockpit.service`
+
+The full documentation for cockpit can be found [here](https://cockpit-project.org/running.html#coreos).
+
+## Using the Image
 
 If you do decide you want to try my image, you will want to rebase from Fedora Kinoite using this command:
 
