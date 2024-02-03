@@ -3,9 +3,3 @@ fix-steam-download-speed:
     mkdir -p $HOME/.local/share/Steam
     rm -f $HOME/.local/share/Steam/steam_dev.cfg
     bash -c 'printf "@nClientDownloadEnableHTTP2PlatformLinux 0\n@fDownloadRateImprovementToAddAnotherConnection 1.0\n" > $HOME/.local/share/Steam/steam_dev.cfg'
-
-recreate-isengard-cli:
-    distrobox rm -f isengard-cli
-    distrobox create --pull --image ghcr.io/noelmiller/isengard-cli:latest 
-    distrobox enter isengard-cli
-
