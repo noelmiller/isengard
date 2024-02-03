@@ -1,0 +1,6 @@
+[Unit]
+Description=isengard-cli.target for isengard-cli quadlet
+
+[Install]
+WantedBy=default.target
+
