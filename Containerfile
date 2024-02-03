@@ -49,8 +49,4 @@ RUN echo "import \"/usr/share/ublue-os/just/80-isengard.just\"" >> /usr/share/ub
     rm -rf \
         /tmp/* \
         /var/* && \
-    mkdir -p /var/tmp && \
-    chmod -R 1777 /var/tmp && \
-    mkdir -p /var/lib/bluetooth && \
-    chmod -R 755 /var/lib/bluetooth && \
     ostree container commit
