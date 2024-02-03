@@ -45,5 +45,11 @@ RUN sed -i '/<entry name="launchers" type="StringList">/,/<\/entry>/ s/<default>
 ### 5. POST-MODIFICATIONS
 ## these commands leave the image in a clean state after local modifications
 # Cleanup & Finalize
-RUN rm /tmp/flatpak_install && \
+RUN rm -rf \
+        /tmp/* \
+        /var/* && \
+    mkdir -p /var/tmp && \
+    chmod -R 1777 /var/tmp && \
+    mkdir -p /var/lib/bluetooth && \
+    chmod -R 755 /var/lib/bluetooth && \
     ostree container commit
