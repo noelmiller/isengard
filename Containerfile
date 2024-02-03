@@ -223,6 +223,7 @@ RUN rpm-ostree install \
         cockpit-podman \
         cockpit-machines \
         cockpit-kdump \
+        gh \
         code \
         libguestfs-tools \
         NetworkManager-tui \
