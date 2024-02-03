@@ -45,7 +45,8 @@ RUN sed -i '/<entry name="launchers" type="StringList">/,/<\/entry>/ s/<default>
 ### 5. POST-MODIFICATIONS
 ## these commands leave the image in a clean state after local modifications
 # Cleanup & Finalize
-RUN rm -rf \
+RUN echo "import \"/usr/share/ublue-os/just/80-isengard.just\"" >> /usr/share/ublue-os/justfile && \
+    rm -rf \
         /tmp/* \
         /var/* && \
     mkdir -p /var/tmp && \
