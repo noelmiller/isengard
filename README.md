@@ -3,13 +3,17 @@
 # Isengard
 [![build-isengard](https://github.com/noelmiller/isengard/actions/workflows/build.yml/badge.svg)](https://github.com/noelmiller/isengard/actions/workflows/build.yml) [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/isengard)](https://artifacthub.io/packages/search?repo=isengard)
 
-Custom Fedora Atomic Image for my Desktop and Laptops. This is my take on what the modern Linux Desktop should look like.
+Custom Fedora Atomic Image for Desktops and Laptops. This is my take on what the modern Linux Desktop should look like.
+
+**Note: I do not have images for Nvidia or other variants of Bazzite. I may add them if there is demand.**
 
 # Purpose
 
-This is an image that is built on the work of [Universal Blue](https://github.com/ublue-os), [Bazzite](https://github.com/ublue-os/bazzite), and [Fedora Kinoite](https://fedoraproject.org/kinoite/) projects.
+This is an image that is built on the work of [Universal Blue](https://github.com/ublue-os), [Bazzite](https://github.com/ublue-os/bazzite), and [Fedora Kinoite](https://fedoraproject.org/kinoite/) projects. 
 
-**This image is not recommended for general usage.**  I do not intend to do hardware enablement unless it's hardware I use specifically.
+The `Containerfile` is built directly off of [Bazzite](https://github.com/ublue-os/bazzite).
+
+**This image is not recommended for general usage.**
 
 If you want images designed for general consumption, I suggest using [Bazzite](https://github.com/ublue-os/bazzite) or [Bluefin](https://github.com/ublue-os/bluefin) from the Universal Blue project.
 
@@ -17,31 +21,17 @@ If you want images designed for general consumption, I suggest using [Bazzite](h
 
 These are the features included in my image!
 
-## [Kernel Fsync](https://copr.fedorainfracloud.org/coprs/sentry/kernel-fsync)
-
-This is a fixed Fedora Kernel that is used in Bazzite and Nobara. It helps improve performance and hardware enablement.
-
 ## Packages
 
-In addition to [ublue-os/main](https://github.com/ublue-os/main), I include the following packages installed by default:
+In addition to the packages included in [Bazzite](https://github.com/ublue-os/bazzite), I include the following installed by default:
 
 ### Layered Packages (through RPM-Ostree)
 
-#### [AKMODS](https://github.com/ublue-os/akmods)
-
-A collection of kernel modules packaged by Universal Blue. These help with hardware enablement.
-
-#### Gaming
-
-- Patched Mesa and Pipewire (from Valve)
-- Steam
-- Protontricks
-
-#### System Administrator
+#### System Administration
 
 - Libvirtd, Qemu, and Virt-Manager
-- Tailscale
 - Subscription-Manager (For running RHEL containers)
+- Cockpit (Not enabled by default)
 - Cockpit Plugins
   - cockpit-navigator
   - cockpit-bridge
@@ -56,22 +46,15 @@ A collection of kernel modules packaged by Universal Blue. These help with hardw
 #### Programming
 
 - VSCode
-- Prompt Terminal
 
 #### Utilities
 
 - Syncthing
-- Linux Mint WebApp Manager
-- System76 Scheduler
-- Tuned
-- OBS-VKCapture
-- Mangohud
 
 ### System Flatpaks
 
 #### Browser
 
-- Firefox
 - Google Chrome
 
 #### Communications
@@ -89,7 +72,6 @@ A collection of kernel modules packaged by Universal Blue. These help with hardw
 
 - VLC
 - Bitwarden
-- Flatseal
 
 #### Gaming
 
@@ -103,6 +85,18 @@ A collection of kernel modules packaged by Universal Blue. These help with hardw
 
 - Inkscape
 - Gimp
+
+## Quadlets
+
+### [Isengard-CLI](https://github.com/noelmiller/isengard-cli)
+
+There is a custom CLI included that runs inside of a container. This is enabled by default using Quadlets.
+
+You can access it by using `distrobox enter isengard-cli` or by creating a new profile in Prompt Terminal. Then under the custom command setting, use `distrobox enter isengard-cli`.
+
+### RHEL 8, RHEL 9, and Fedora 39 Toolboxes
+
+These quadlets are also included and rebuilt every time you reboot this image.
 
 ## Cockpit
 
@@ -146,4 +140,4 @@ cosign verify --key cosign.pub ghcr.io/noelmiller/isengard
 
 ## Special Thanks
 
-The contributors at Fedora and Universal Blue are amazing. This image would not exist without the incredible work they do every day!
+The contributors at Universal Blue, Bazzite, and Fedora are amazing. This image would not exist without the incredible work they do every day!
