@@ -2,5 +2,4 @@
 Description=isengard-cli.target for isengard-cli quadlet
 
 [Install]
-WantedBy=default.target
-
+WantedBy=multi-user.target default.target

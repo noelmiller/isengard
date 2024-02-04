@@ -1,0 +1,5 @@
+[Unit]
+Description=fedora39-toolbox.target for fedora39-toolbox quadlet
+
+[Install]
+WantedBy=multi-user.target default.target
