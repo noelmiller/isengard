@@ -44,3 +44,8 @@ Volume=/etc/resolv.conf:/etc/resolv.conf:ro
 
 [Install]
 WantedBy=rhel-ubi9-toolbox.target
+
+[Service]
+ExecStartPre=-/usr/libexec/prompt-remove-profile.sh %N
+ExecStartPost=-/usr/libexec/prompt-create-profile.sh %N
+ExecStop=-/usr/libexec/prompt-remove-profile.sh %N
