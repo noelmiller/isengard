@@ -18,6 +18,7 @@ COPY system_files /
 
 ## Install new packages
 RUN rpm-ostree install \
+	powerline-fonts \
         subscription-manager \
         cockpit-navigator \
         cockpit-bridge \
