@@ -42,7 +42,8 @@ Volume=/etc/resolv.conf:/etc/resolv.conf:ro
 [Install]
 WantedBy=isengard-cli.target
 
-[Service]
-ExecStartPre=-/usr/libexec/prompt-remove-profile.sh %N
-ExecStartPost=-/usr/libexec/prompt-create-profile.sh %N
-ExecStop=-/usr/libexec/prompt-remove-profile.sh %N
+## For adding it as a prompt profile. This is still a work in progress.
+# [Service]
+# ExecStartPre=-/usr/libexec/prompt-remove-profile.sh %N
+# ExecStartPost=-/usr/libexec/prompt-create-profile.sh %N
+# ExecStop=-/usr/libexec/prompt-remove-profile.sh %N
