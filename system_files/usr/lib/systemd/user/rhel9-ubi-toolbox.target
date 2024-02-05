@@ -1,5 +1,0 @@
-[Unit]
-Description=rhel9-ubi-toolbox.target for rhel9-ubi-toolbox quadlet
-
-[Install]
-WantedBy=multi-user.target default.target
