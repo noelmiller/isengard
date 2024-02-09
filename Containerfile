@@ -18,6 +18,7 @@ COPY system_files /
 
 ## Install new packages
 RUN rpm-ostree install \
+        livecd-tools \
         subscription-manager \
         cockpit-navigator \
         cockpit-bridge \
