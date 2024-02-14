@@ -18,7 +18,7 @@ COPY system_files /
 
 ## Install new packages
 RUN rpm-ostree install \
-	nmap-ncat \
+	nc \
 	lorax \
 	pykickstart \
         livecd-tools \
