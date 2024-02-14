@@ -18,6 +18,9 @@ COPY system_files /
 
 ## Install new packages
 RUN rpm-ostree install \
+	nmap-ncat \
+	lorax \
+	pykickstart \
         livecd-tools \
         subscription-manager \
         cockpit-navigator \
