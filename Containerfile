@@ -16,12 +16,11 @@ COPY system_files /
 ### 4. MODIFICATIONS
 ## make modifications desired in your image and install packages here, a few examples follow
 
+# Apply IP Forwarding before installing Docker to prevent messing with LXC networking
+RUN sysctl -p
+
 ## Install new packages
 RUN rpm-ostree install \
-	nc \
-	lorax \
-	pykickstart \
-        livecd-tools \
         subscription-manager \
         cockpit-navigator \
         cockpit-bridge \
@@ -39,6 +38,17 @@ RUN rpm-ostree install \
         virt-manager \
         virt-viewer \
         syncthing
+
+## Install Docker and Docker Compose
+RUN rpm-ostree install \
+        docker-ce \
+        docker-ce-cli \
+        containerd.io \
+	docker-buildx-plugin \
+        docker-compose-plugin && \
+    wget https://github.com/docker/compose/releases/latest/download/docker-compose-linux-x86_64 -O /tmp/docker-compose && \
+    install -c -m 0755 /tmp/docker-compose /usr/bin && \
+    systemctl enable docker.socket
 
 RUN cat /tmp/flatpak_install >> /usr/share/ublue-os/bazzite/flatpak/install
 
