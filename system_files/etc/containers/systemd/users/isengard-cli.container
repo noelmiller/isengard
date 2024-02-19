@@ -42,6 +42,7 @@ Volume=/var/log/journal
 Volume=isengard-cli-gh:/XDG_DIRS/config/gh:rslave
 Volume=isengard-cli-github-copilot:/XDG_DIRS/config/github-copilot:rslave
 Volume=isengard-cli-zoxide:/XDG_DIRS/local/share/zoxide:rslave
+Volume=isengard-cli-atuin:/XDG_DIRS/local/share/atuin:rslave
 
 [Install]
 WantedBy=isengard-cli.target
