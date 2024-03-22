@@ -88,7 +88,7 @@ jobs:
       - name: Get current version
         id: labels
         run: |
-          ver=$(skopeo inspect docker://ghcr.io/ublue-os/${{ env.ARG_BASE_IMAGE_NAME }}}:${{ env.ARG_IMAGE_TAG }} | jq -r '.Labels["org.opencontainers.image.version"]')
+          ver=$(skopeo inspect docker://ghcr.io/ublue-os/${{ env.ARG_BASE_IMAGE_NAME }}:${{ env.ARG_IMAGE_TAG }} | jq -r '.Labels["org.opencontainers.image.version"]')
           echo "VERSION=$ver" >> $GITHUB_OUTPUT
 
       # Build metadata
