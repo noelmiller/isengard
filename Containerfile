@@ -42,8 +42,6 @@ RUN rpm-ostree install \
   containerd.io \
   docker-buildx-plugin \
   docker-compose-plugin && \
-  wget https://github.com/docker/compose/releases/latest/download/docker-compose-linux-x86_64 -O /tmp/docker-compose && \
-  install -c -m 0755 /tmp/docker-compose /usr/bin && \
   systemctl enable docker.socket
 
 RUN cat /tmp/flatpak_install >> /usr/share/ublue-os/bazzite/flatpak/install
