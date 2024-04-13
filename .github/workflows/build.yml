@@ -169,6 +169,7 @@ jobs:
   build_iso:
     name: build iso
     needs: [push-ghcr]
+    # Add [ISO] to the end of your PR title to build an ISO
     if: ${{ endsWith(github.event.pull_request.title, '[ISO]') }}
     uses: ./.github/workflows/build_iso.yml
     secrets: inherit
