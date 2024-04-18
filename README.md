@@ -60,9 +60,10 @@ In addition to the packages included in [Bazzite](https://github.com/ublue-os/ba
 #### Communications
 
 - Slack
-- Discord
+- Discord (using Vesktop)
 - Element
 - Signal
+- KDE Neochat
 
 #### Programming
 
@@ -72,13 +73,12 @@ In addition to the packages included in [Bazzite](https://github.com/ublue-os/ba
 
 - VLC
 - Bitwarden
+- Standard Notes
 
 #### Gaming
 
 - XIVLauncher (FFXIV Launcher)
 - OSU Lazer
-- Parsec
-- Yuzu
 - Dolphin Emulator
 
 #### Design
