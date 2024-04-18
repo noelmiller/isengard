@@ -94,10 +94,6 @@ There is a custom CLI included that runs inside of a container. This is enabled 
 
 You can access it by using `distrobox enter isengard-cli` or by creating a new profile in Prompt Terminal. Then under the custom command setting, use `distrobox enter isengard-cli`.
 
-### RHEL 8, RHEL 9, and Fedora 39 Toolboxes
-
-These quadlets are also included and rebuilt every time you reboot this image.
-
 ## Cockpit
 
 I do not enable cockpit by default as I use this image on my laptop as well.
@@ -129,6 +125,14 @@ If you do decide you want to try my image, you will want to rebase from Fedora K
 ```bash
 rpm-ostree rebase ostree-unverified-registry:ghcr.io/noelmiller/isengard:latest
 ```
+
+After rebase, you will need to run the command below to install all flatpaks that are shipped with Bazzite and Isengard
+
+```bash
+ujust _install-isengard-flatpaks
+```
+
+If there is demand, I may publish ISOs.
 
 ## Verification
 
