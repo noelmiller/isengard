@@ -72,7 +72,6 @@ In addition to the packages included in [Bazzite](https://github.com/ublue-os/ba
 #### Utilities
 
 - VLC
-- Bitwarden
 - Standard Notes
 
 #### Gaming
