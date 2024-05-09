@@ -50,6 +50,7 @@ In addition to the packages included in [Bazzite](https://github.com/ublue-os/ba
 #### Utilities
 
 - Syncthing
+- ProtonMail Desktop
 
 ### System Flatpaks
 
@@ -63,7 +64,6 @@ In addition to the packages included in [Bazzite](https://github.com/ublue-os/ba
 - Discord (using Vesktop)
 - Element
 - Signal
-- KDE Neochat
 
 #### Programming
 
