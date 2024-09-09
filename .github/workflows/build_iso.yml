@@ -133,7 +133,7 @@ jobs:
           compression-level: 0
           overwrite: true
 
-      # Will readd if the image is popular enough for general consumption
+      # The purpose of this is to upload ISOs to R2 so they can be accessed by the general public. It is unlikely I will ever do this.
       #      - name: Upload ISOs and Checksum to R2
       #        if: github.event_name == 'workflow_dispatch' && github.ref_name == 'main'
       #        shell: bash
