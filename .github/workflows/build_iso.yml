@@ -10,7 +10,7 @@ concurrency:
 
 env:
   image_name: "isengard"
-  major_version: "39"
+  major_version: "40"
 
 jobs:
   build-iso:
@@ -60,8 +60,7 @@ jobs:
       - name: Get Bazzite KDE Flatpaks
         shell: bash
         run: |
-          curl --fail -L -o ${{ github.workspace }}/${{ steps.generate-flatpak-dir-shortname.outputs.flatpak-dir-shortname }}/bazzite_flatpaks https://raw.githubusercontent.com/ublue-os/bazzite/main/scripts/kde_flatpaks/flatpaks
-
+          curl --fail -L -o ${{ github.workspace }}/${{ steps.generate-flatpak-dir-shortname.outputs.flatpak-dir-shortname }}/bazzite_flatpaks https://raw.githubusercontent.com/ublue-os/bazzite/main/installer/kde_flatpaks/flatpaks
       - name: Determine Flatpak Dependencies
         id: flatpak_dependencies
         shell: bash
@@ -133,7 +132,7 @@ jobs:
           compression-level: 0
           overwrite: true
 
-      # Will readd if the image is popular enough for general consumption
+      # The purpose of this is to upload ISOs to R2 so they can be accessed by the general public. It is unlikely I will ever do this.
       #      - name: Upload ISOs and Checksum to R2
       #        if: github.event_name == 'workflow_dispatch' && github.ref_name == 'main'
       #        shell: bash
