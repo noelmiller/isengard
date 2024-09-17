@@ -1,5 +1,4 @@
 app/app.drey.Warp/x86_64/stable
-app/com.bitwarden.desktop/x86_64/stable
 app/com.github.zocker_160.SyncThingy/x86_64/stable
 app/com.google.Chrome/x86_64/stable
 app/com.obsproject.Studio/x86_64/stable
@@ -13,6 +12,10 @@ app/org.DolphinEmu.dolphin-emu/x86_64/stable
 app/org.gimp.GIMP/x86_64/stable
 app/org.inkscape.Inkscape/x86_64/stable
 app/org.signal.Signal/x86_64/stable
-app/org.standardnotes.standardnotes/x86_64/stable
 app/org.videolan.VLC/x86_64/stable
 app/sh.ppy.osu/x86_64/stable
+app/com.calibre_ebook.calibre/x86_64/stable
+app/com.fightcade.Fightcade/x86_64/stable
+app/io.github.zen_browser.zen/x86_64/stable
+runtime/com.fightcade.Fightcade.Wine/x86_64/stable
+runtime/com.obsproject.Studio.Plugin.DroidCam/x86_64/stable
