@@ -46,6 +46,7 @@ In addition to the packages included in [Bazzite](https://github.com/ublue-os/ba
 #### Programming
 
 - VSCode
+- Zed
 
 #### Utilities
 
