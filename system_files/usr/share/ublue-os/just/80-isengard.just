@@ -19,7 +19,7 @@ disconnect-home:
 # Install system flatpaks
 _install-isengard-flatpaks:
     #!/bin/bash
-    BAZZITE_FLATPAK_LIST="$(curl https://raw.githubusercontent.com/ublue-os/bazzite/main/scripts/gnome_flatpaks/flatpaks | tr '\n' ' ')"
+    BAZZITE_FLATPAK_LIST="$(curl https://raw.githubusercontent.com/ublue-os/bazzite/main/installer/gnome_flatpaks/flatpaks | tr '\n' ' ')"
     ISENGARD_FLATPAK_LIST="$(curl https://raw.githubusercontent.com/noelmiller/isengard/main/flatpaks/isengard_flatpaks | tr '\n' ' ')"
     echo "Installing Bazzite Flatpaks.."
     flatpak --system -y install ${BAZZITE_FLATPAK_LIST}
