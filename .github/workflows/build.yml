@@ -5,18 +5,18 @@ on:
     branches:
       - main
   schedule:
-    - cron: "05 10 * * *" # 10:05am UTC everyday
+    - cron: '05 10 * * *'  # 10:05am UTC everyday
   push:
     branches:
       - main
     paths-ignore:
-      - "**.md"
-      - "**.txt"
+      - '**.md'
+      - '**.txt'
   workflow_dispatch:
 
 env:
   MY_IMAGE_NAME: "isengard"
-  ARG_BASE_IMAGE_NAME: "bazzite-gnome"
+  ARG_BASE_IMAGE_NAME: "bazzite"
   ARG_IMAGE_TAG: "stable"
   IMAGE_REGISTRY: "ghcr.io/${{ github.repository_owner }}"
 

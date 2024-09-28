@@ -20,6 +20,7 @@ jobs:
       packages: write
       id-token: write
     steps:
+
       - name: Free Disk Space (Ubuntu)
         uses: jlumbroso/free-disk-space@v1.3.1
 
@@ -59,7 +60,7 @@ jobs:
       - name: Get Bazzite KDE Flatpaks
         shell: bash
         run: |
-          curl --fail -L -o ${{ github.workspace }}/${{ steps.generate-flatpak-dir-shortname.outputs.flatpak-dir-shortname }}/bazzite_flatpaks https://raw.githubusercontent.com/ublue-os/bazzite/main/installer/gnome_flatpaks/flatpaks
+          curl --fail -L -o ${{ github.workspace }}/${{ steps.generate-flatpak-dir-shortname.outputs.flatpak-dir-shortname }}/bazzite_flatpaks https://raw.githubusercontent.com/ublue-os/bazzite/main/installer/kde_flatpaks/flatpaks
       - name: Determine Flatpak Dependencies
         id: flatpak_dependencies
         shell: bash
@@ -98,11 +99,11 @@ jobs:
           arch: x86_64
           image_name: ${{ env.image_name }}
           image_repo: ghcr.io/noelmiller
-          variant: "Kinoite"
+          variant: 'Kinoite'
           version: ${{ env.major_version }}
           image_tag: ${{ steps.generate-tag.outputs.tag }}
-          secure_boot_key_url: "https://github.com/ublue-os/akmods/raw/main/certs/public_key.der"
-          enrollment_password: "ublue-os"
+          secure_boot_key_url: 'https://github.com/ublue-os/akmods/raw/main/certs/public_key.der'
+          enrollment_password: 'ublue-os'
           iso_name: ${{ env.image_name }}-${{ steps.generate-tag.outputs.tag }}.iso
           enable_cache_dnf: "false"
           enable_cache_skopeo: "false"
