@@ -123,6 +123,8 @@ jobs:
             IMAGE_TAG=${{ env.ARG_IMAGE_TAG }}
           labels: ${{ steps.meta.outputs.labels }}
           oci: false
+          extra-args: |
+            --compression-format=zstd:chunked
 
       # Workaround bug where capital letters in your GitHub username make it impossible to push to GHCR.
       # https://github.com/macbre/push-to-ghcr/issues/12
@@ -153,7 +155,7 @@ jobs:
           username: ${{ env.REGISTRY_USER }}
           password: ${{ env.REGISTRY_PASSWORD }}
           extra-args: |
-            --disable-content-trust
+            --disable-content-trust --compression-format=zstd:chunked
 
       # Sign container
       - uses: sigstore/cosign-installer@v3.6.0
