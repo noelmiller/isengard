@@ -30,6 +30,7 @@ programming_packages=(
 
 utility_packages=(
   "syncthing"
+  "akmod-evdi"
 )
 
 docker_packages=(
