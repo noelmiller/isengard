@@ -30,6 +30,7 @@ programming_packages=(
 
 utility_packages=(
   "syncthing"
+  "displaylink"
 )
 
 docker_packages=(
