@@ -153,7 +153,7 @@ jobs:
           username: ${{ env.REGISTRY_USER }}
           password: ${{ env.REGISTRY_PASSWORD }}
           extra-args: |
-            --disable-content-trust --compression-format=zstd:chunked
+            --disable-content-trust
 
       # Sign container
       - uses: sigstore/cosign-installer@v3.6.0
