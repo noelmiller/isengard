@@ -25,6 +25,7 @@ sysadmin_packages=(
 
 programming_packages=(
   "code"
+  "nushell"
   "zed"
 )
 
