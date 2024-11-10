@@ -26,6 +26,7 @@ sysadmin_packages=(
 programming_packages=(
   "code"
   "gh"
+  "nushell"
   "zed"
 )
 
