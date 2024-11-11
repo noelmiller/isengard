@@ -9,7 +9,7 @@ Custom Fedora Atomic Image for Desktops and Laptops. This is my take on what the
 
 # Purpose
 
-This is an image that is built on the work of [Universal Blue](https://github.com/ublue-os), [Bazzite](https://github.com/ublue-os/bazzite), and [Fedora Kinoite](https://fedoraproject.org/kinoite/) projects. 
+This is an image that is built on the work of [Universal Blue](https://github.com/ublue-os), [Bazzite](https://github.com/ublue-os/bazzite), and [Fedora Kinoite](https://fedoraproject.org/kinoite/) projects.
 
 The `Containerfile` is built directly off of [Bazzite](https://github.com/ublue-os/bazzite).
 
@@ -47,11 +47,14 @@ In addition to the packages included in [Bazzite](https://github.com/ublue-os/ba
 
 - VSCode
 - Zed
+- GH (Github CLI)
+- Nushell
 
 #### Utilities
 
 - Syncthing
 - Protonmail Desktop
+- Stow
 
 ### System Flatpaks
 
@@ -88,14 +91,6 @@ In addition to the packages included in [Bazzite](https://github.com/ublue-os/ba
 
 - Inkscape
 - Gimp
-
-## Quadlets
-
-### [Isengard-CLI](https://github.com/noelmiller/isengard-cli)
-
-There is a custom CLI included that runs inside of a container. This is enabled by default using Quadlets.
-
-You can access it by using `distrobox enter isengard-cli` or by creating a new profile in Prompt Terminal. Then under the custom command setting, use `distrobox enter isengard-cli`.
 
 ## Cockpit
 
