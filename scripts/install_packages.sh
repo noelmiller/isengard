@@ -32,6 +32,7 @@ programming_packages=(
 
 utility_packages=(
   "syncthing"
+  "stow"
 )
 
 docker_packages=(
