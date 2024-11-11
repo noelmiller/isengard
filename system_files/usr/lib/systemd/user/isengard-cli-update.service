@@ -1,8 +1,0 @@
-[Unit]
-Description=Restart isengard-cli.service to rebuild container
-
-[Service]
-Type=oneshot
-ExecStart=-/usr/bin/podman pull ghcr.io/noelmiller/isengard-cli:latest
-ExecStart=-/usr/bin/systemctl --user restart isengard-cli.service
-
