@@ -31,6 +31,7 @@ programming_packages=(
 )
 
 utility_packages=(
+  "1password"
   "syncthing"
   "stow"
   "scrcpy"
