@@ -2,9 +2,6 @@
 
 set -ouex pipefail
 
-# Download Protonmail RPM
-curl -o /tmp/ProtonMail-desktop-beta.rpm https://proton.me/download/mail/linux/ProtonMail-desktop-beta.rpm
-
 sysadmin_packages=(
   "subscription-manager"
   "cockpit-navigator"
@@ -51,4 +48,4 @@ packages=(
   ${docker_packages[@]}
 )
 
-rpm-ostree install ${packages[@]} /tmp/ProtonMail-desktop-beta.rpm
+rpm-ostree install ${packages[@]}
