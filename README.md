@@ -53,7 +53,7 @@ In addition to the packages included in [Bazzite](https://github.com/ublue-os/ba
 #### Utilities
 
 - Syncthing
-- Protonmail Desktop
+- 1Password
 - Stow
 - scrcpy (used for controlling an android phone over USB)
 
