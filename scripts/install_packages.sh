@@ -31,6 +31,7 @@ programming_packages=(
 )
 
 utility_packages=(
+  "insync"
   "syncthing"
   "stow"
   "scrcpy"
