@@ -48,6 +48,7 @@ In addition to the packages included in [Bazzite](https://github.com/ublue-os/ba
 - VSCode
 - Zed
 - GH (Github CLI)
+- Ghostty
 - Nushell
 
 #### Utilities
