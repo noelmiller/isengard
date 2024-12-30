@@ -24,6 +24,7 @@ programming_packages=(
   "code"
   "gh"
   "ghostty"
+  "insync"
   "nushell"
   "zed"
 )
