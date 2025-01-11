@@ -30,6 +30,7 @@ programming_packages=(
 )
 
 utility_packages=(
+  "cosmic-store"
   "syncthing"
   "stow"
   "scrcpy"
