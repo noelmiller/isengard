@@ -34,6 +34,7 @@ utility_packages=(
   "syncthing"
   "stow"
   "scrcpy"
+  "waypipe"
 )
 
 docker_packages=(
