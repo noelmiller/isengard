@@ -53,6 +53,7 @@ In addition to the packages included in [Bazzite](https://github.com/ublue-os/ba
 
 #### Utilities
 
+- FZF-Tab-Completion (For Bash)
 - Syncthing
 - 1Password
 - Stow
