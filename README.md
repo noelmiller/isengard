@@ -49,6 +49,7 @@ In addition to the packages included in [Bazzite](https://github.com/ublue-os/ba
 - Zed
 - GH (Github CLI)
 - Ghostty
+- NodeJS
 
 #### Utilities
 
