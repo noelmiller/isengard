@@ -57,3 +57,6 @@ rpm-ostree install ${packages[@]}
 
 # install fzf-tab-completion
 git clone https://github.com/lincheney/fzf-tab-completion.git /usr/share/ublue-os/fzf-tab-completion
+
+# install pyenv-activate
+git clone https://github.com/Intersec/pyvenv-activate.git /usr/share/ublue-os/pyvenv-activate

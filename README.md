@@ -53,11 +53,14 @@ In addition to the packages included in [Bazzite](https://github.com/ublue-os/ba
 
 #### Utilities
 
-- FZF-Tab-Completion (For Bash)
 - Syncthing
 - 1Password
 - Stow
 - scrcpy (used for controlling an android phone over USB)
+
+### Git Repositories (simple clone)
+- [FZF-Tab-Completion](https://github.com/lincheney/fzf-tab-completion)
+- [Pyenv-Activate](https://github.com/Intersec/pyenv-activate)
 
 ### System Flatpaks
 
