@@ -59,6 +59,9 @@ In addition to the packages included in [Bazzite](https://github.com/ublue-os/ba
 - Stow
 - scrcpy (used for controlling an android phone over USB)
 
+### Git Repositories (simple clone)
+- [FZF-Tab-Completion](https://github.com/lincheney/fzf-tab-completion)
+
 ### System Flatpaks
 
 #### Browser
