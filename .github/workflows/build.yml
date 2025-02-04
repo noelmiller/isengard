@@ -16,6 +16,10 @@ on:
       - '**.txt'
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref || github.run_id }}
+  cancel-in-progress: true
+
 env:
   MY_IMAGE_NAME: "isengard"
   ARG_BASE_IMAGE_NAME: "bazzite"
@@ -199,6 +203,6 @@ jobs:
     name: build iso
     needs: [push-ghcr]
     # Add [ISO] to the end of your PR title to build an ISO
-    if: ${{ endsWith(github.event.pull_request.title, '[ISO]') }}
+    if: ${{ endsWith(github.event.pull_request.title, '[ISO]') }} || github.ref_name == "testing"
     uses: ./.github/workflows/build_iso.yml
     secrets: inherit
