@@ -44,7 +44,7 @@ jobs:
         id: generate-tags
         shell: bash
         run: |
-          echo "${{ github.repository }}"
+          echo "${{ github.head_ref }}"
           # Generate a timestamp for creating an image version history
           TIMESTAMP="$(date +%Y%m%d)"
           VARIANT="${{ env.ARG_IMAGE_TAG }}"
