@@ -3,7 +3,7 @@
 set -ouex pipefail
 
 # install terra-release and terra-release-extras
-dnf5 -y install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release{,-extras}
+# dnf5 -y install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release{,-extras}
 
 sysadmin_packages=(
   "subscription-manager"
