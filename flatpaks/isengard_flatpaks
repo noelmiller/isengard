@@ -16,6 +16,6 @@ app/org.videolan.VLC/x86_64/stable
 app/sh.ppy.osu/x86_64/stable
 app/com.calibre_ebook.calibre/x86_64/stable
 app/com.fightcade.Fightcade/x86_64/stable
-app/io.github.zen_browser.zen/x86_64/stable
+app/app.zen_browser.zen/x86_64/stable
 runtime/com.fightcade.Fightcade.Wine/x86_64/stable
 runtime/com.obsproject.Studio.Plugin.DroidCam/x86_64/stable
