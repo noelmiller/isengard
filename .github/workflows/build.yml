@@ -17,7 +17,7 @@ on:
 env:
   MY_IMAGE_NAME: "isengard"
   ARG_BASE_IMAGE_NAME: "bazzite"
-  ARG_IMAGE_TAG: "stable"
+  ARG_IMAGE_TAG: "testing"
   IMAGE_REGISTRY: "ghcr.io/${{ github.repository_owner }}"
 
 jobs:
