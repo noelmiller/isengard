@@ -68,6 +68,7 @@ jobs:
           curl --fail -L -o ${{ github.workspace }}/${{ steps.generate-flatpak-dir-shortname.outputs.flatpak-dir-shortname }}/bazzite_flatpaks https://raw.githubusercontent.com/ublue-os/bazzite/main/installer/kde_flatpaks/flatpaks
           grep -v 'app/org.mozilla.firefox/x86_64/stable' ${{ github.workspace }}/${{ steps.generate-flatpak-dir-shortname.outputs.flatpak-dir-shortname }}/bazzite_flatpaks > ${{ github.workspace }}/${{ steps.generate-flatpak-dir-shortname.outputs.flatpak-dir-shortname }}/bazzite_flatpaks_no_firefox
           mv ${{ github.workspace }}/${{ steps.generate-flatpak-dir-shortname.outputs.flatpak-dir-shortname }}/bazzite_flatpaks_no_firefox ${{ github.workspace }}/${{ steps.generate-flatpak-dir-shortname.outputs.flatpak-dir-shortname }}/bazzite_flatpaks
+
       - name: Determine Flatpak Dependencies
         id: flatpak_dependencies
         shell: bash
