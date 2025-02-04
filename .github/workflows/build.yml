@@ -44,13 +44,18 @@ jobs:
         id: generate-tags
         shell: bash
         run: |
-          echo "${{ github.head_ref }}"
+          # Set the image tag based on the branch name
+          if [[ "${{ github.event_name }} == "pull_request" ]]; then
+              ARG_IMAGE_TAG="${{ github.head_ref }}"
+          fi
+
           # Generate a timestamp for creating an image version history
           TIMESTAMP="$(date +%Y%m%d)"
           VARIANT="${{ env.ARG_IMAGE_TAG }}"
 
           if [[ "${VARIANT}" == "main" ]]; then
               VARIANT="stable"
+              ARG_IMAGE_TAG="stable"
           fi
 
           COMMIT_TAGS=()
