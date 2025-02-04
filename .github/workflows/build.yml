@@ -44,9 +44,8 @@ jobs:
         id: generate-tags
         shell: bash
         run: |
-          # Set the image tag based on the branch name
           if [[ "${{ github.event_name }}" == "pull_request" ]]; then
-              ARG_IMAGE_TAG="${{ github.head_ref }}"
+              echo ARG_IMAGE_TAG="${{ github.head_ref }}" >> $GITHUB_ENV
           fi
 
           # debug
@@ -60,7 +59,7 @@ jobs:
 
           if [[ "${VARIANT}" == "main" ]]; then
               VARIANT="stable"
-              ARG_IMAGE_TAG="stable"
+              echo ARG_IMAGE_TAG="stable" >> $GITHUB_ENV
           fi
 
           COMMIT_TAGS=()
