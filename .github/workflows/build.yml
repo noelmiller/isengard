@@ -83,6 +83,10 @@ jobs:
           else
               alias_tags=("${BUILD_TAGS[@]}")
           fi
+ 
+          # debug
+          echo "Alias Tags BEFORE"
+          echo "${alias_tags[*]}"
 
           if [[ "${{ github.event_name }}" == "pull_request" ]]; then
               echo "Generated the following commit tags: "
@@ -101,7 +105,7 @@ jobs:
           done
 
           # debug
-          echo "${{ github.ref_name }}"
+          echo "Alias Tags AFTER"
           echo "${alias_tags[*]}"
 
           echo "alias_tags=${alias_tags[*]}" >> $GITHUB_OUTPUT
