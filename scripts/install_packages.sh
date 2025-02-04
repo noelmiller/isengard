@@ -53,7 +53,7 @@ packages=(
 )
 
 # install rpms
-rpm-ostree install ${packages[@]}
+dnf5 install ${packages[@]}
 
 # install fzf-tab-completion
 git clone https://github.com/lincheney/fzf-tab-completion.git /usr/share/ublue-os/fzf-tab-completion
