@@ -4,11 +4,13 @@ on:
   pull_request:
     branches:
       - main
+      - testing
   schedule:
     - cron: '05 10 * * *'  # 10:05am UTC everyday
   push:
     branches:
       - main
+      - testing
     paths-ignore:
       - '**.md'
       - '**.txt'
@@ -17,7 +19,7 @@ on:
 env:
   MY_IMAGE_NAME: "isengard"
   ARG_BASE_IMAGE_NAME: "bazzite"
-  ARG_IMAGE_TAG: "testing"
+  ARG_IMAGE_TAG: "${{ github.ref_name }}"
   IMAGE_REGISTRY: "ghcr.io/${{ github.repository_owner }}"
 
 jobs:
@@ -48,6 +50,7 @@ jobs:
 
           COMMIT_TAGS=()
           BUILD_TAGS=()
+          TESTING_TAGS=()
 
           # Have tags for tracking builds during pull request
           SHA_SHORT="${GITHUB_SHA::7}"
@@ -73,7 +76,7 @@ jobs:
           BUILD_TAGS+=("latest")
 
           if [[ "${{ github.ref_name }}" == "testing" ]]; then
-              echo "Generated the following commit tags: "
+              echo "Generated the following build tags: "
               for TAG in "${TESTING_TAGS[@]}"; do
                   echo "${TAG}"
               done
