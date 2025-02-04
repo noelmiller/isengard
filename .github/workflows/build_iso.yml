@@ -10,7 +10,7 @@ concurrency:
 
 env:
   image_name: "isengard"
-  major_version: "41"
+  major_version: "40"
 
 jobs:
   build-iso:
@@ -33,12 +33,8 @@ jobs:
         run: |
           TAG="stable"
 
-          if [[ -n "${{ github.event.number }}" ]]; then
+          if [[ github.event.number ]]; then
             TAG="pr-${{ github.event.number }}"
-          fi
-
-          if [[ "${{ github.ref_name }}" == "testing" ]]; then
-            TAG="testing"
           fi
 
           echo "tag=${TAG}" >> $GITHUB_OUTPUT
@@ -61,14 +57,10 @@ jobs:
           FLATPAK_DIR_SHORTNAME="flatpaks"
           echo "flatpak-dir-shortname=${FLATPAK_DIR_SHORTNAME}" >> $GITHUB_OUTPUT
 
-      # Get Bazzite and remove Firefox
       - name: Get Bazzite KDE Flatpaks
         shell: bash
         run: |
           curl --fail -L -o ${{ github.workspace }}/${{ steps.generate-flatpak-dir-shortname.outputs.flatpak-dir-shortname }}/bazzite_flatpaks https://raw.githubusercontent.com/ublue-os/bazzite/main/installer/kde_flatpaks/flatpaks
-          grep -v 'app/org.mozilla.firefox/x86_64/stable' ${{ github.workspace }}/${{ steps.generate-flatpak-dir-shortname.outputs.flatpak-dir-shortname }}/bazzite_flatpaks > ${{ github.workspace }}/${{ steps.generate-flatpak-dir-shortname.outputs.flatpak-dir-shortname }}/bazzite_flatpaks_no_firefox
-          mv ${{ github.workspace }}/${{ steps.generate-flatpak-dir-shortname.outputs.flatpak-dir-shortname }}/bazzite_flatpaks_no_firefox ${{ github.workspace }}/${{ steps.generate-flatpak-dir-shortname.outputs.flatpak-dir-shortname }}/bazzite_flatpaks
-
       - name: Determine Flatpak Dependencies
         id: flatpak_dependencies
         shell: bash
@@ -101,7 +93,7 @@ jobs:
           docker rmi ${image}
 
       - name: Build ISOs
-        uses: jasonn3/build-container-installer@v1.2.4
+        uses: jasonn3/build-container-installer@v1.2.3
         id: build
         with:
           arch: x86_64
@@ -111,7 +103,7 @@ jobs:
           version: ${{ env.major_version }}
           image_tag: ${{ steps.generate-tag.outputs.tag }}
           secure_boot_key_url: 'https://github.com/ublue-os/akmods/raw/main/certs/public_key.der'
-          enrollment_password: 'universalblue'
+          enrollment_password: 'ublue-os'
           iso_name: ${{ env.image_name }}-${{ steps.generate-tag.outputs.tag }}.iso
           enable_cache_dnf: "false"
           enable_cache_skopeo: "false"
@@ -130,6 +122,7 @@ jobs:
           echo "iso-upload-dir=${ISO_UPLOAD_DIR}" >> $GITHUB_OUTPUT
 
       - name: Upload ISOs and Checksum to Job Artifacts
+        if: github.event_name == 'pull_request'
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.image_name }}-${{ steps.generate-tag.outputs.tag }}-${{ env.major_version}}

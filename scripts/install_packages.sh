@@ -23,15 +23,14 @@ sysadmin_packages=(
 programming_packages=(
   "code"
   "gh"
+  "ghostty"
   "insync"
   "nodejs"
   "zed"
 )
 
-# including firefox because vscode needs it
 utility_packages=(
   "cosmic-store"
-  "firefox"
   "syncthing"
   "stow"
   "scrcpy"
@@ -54,7 +53,7 @@ packages=(
 )
 
 # install rpms
-dnf5 install -y ${packages[@]}
+rpm-ostree install ${packages[@]}
 
 # install fzf-tab-completion
 git clone https://github.com/lincheney/fzf-tab-completion.git /usr/share/ublue-os/fzf-tab-completion
