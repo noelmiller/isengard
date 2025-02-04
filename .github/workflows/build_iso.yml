@@ -21,8 +21,8 @@ jobs:
       id-token: write
     steps:
 
-#      - name: Free Disk Space (Ubuntu)
-#        uses: jlumbroso/free-disk-space@v1.3.1
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@v1.3.1
 
       - name: Checkout Repo
         uses: actions/checkout@v4
@@ -37,7 +37,7 @@ jobs:
             TAG="testing"
           fi
 
-          if [[ github.event.number ]]; then
+          if [[ -n github.event.number ]]; then
             TAG="pr-${{ github.event.number }}"
           fi
 
