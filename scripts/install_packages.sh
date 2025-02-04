@@ -2,6 +2,9 @@
 
 set -ouex pipefail
 
+# install terra-release and terra-release-extras
+dnf5 -y install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release{,-extras}
+
 sysadmin_packages=(
   "subscription-manager"
   "cockpit-navigator"
@@ -23,7 +26,6 @@ sysadmin_packages=(
 programming_packages=(
   "code"
   "gh"
-  "ghostty"
   "insync"
   "nodejs"
   "zed"
