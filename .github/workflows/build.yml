@@ -54,17 +54,25 @@ jobs:
 
           # Have tags for tracking builds during pull request
           SHA_SHORT="${GITHUB_SHA::7}"
+
           COMMIT_TAGS+=("pr-${{ github.event.number }}-${VARIANT}")
           COMMIT_TAGS+=("${SHA_SHORT}-${VARIANT}")
 
           COMMIT_TAGS+=("pr-${{ github.event.number }}")
           COMMIT_TAGS+=("${SHA_SHORT}")
 
+          # Tags for tracking builds during testing
           TESTING_TAGS+=("${SHA_SHORT}-${VARIANT}")
           TESTING_TAGS+=("${SHA_SHORT}")
           TESTING_TAGS+=("${VARIANT}")
 
+          # Append matching timestamp tags to keep a version history
+          for TAG in "${TESTING_TAGS[@]}"; do
+              TESTING_TAGS+=("${TAG}-${TIMESTAMP}")
+          done
+
           BUILD_TAGS=("${VARIANT}")
+          BUILD_TAGS+=("latest")
 
           # Append matching timestamp tags to keep a version history
           for TAG in "${BUILD_TAGS[@]}"; do
@@ -96,10 +104,6 @@ jobs:
           for TAG in "${BUILD_TAGS[@]}"; do
               echo "${TAG}"
           done
-
-          # debug
-          echo "Alias Tags AFTER"
-          echo "${alias_tags[*]}"
 
           echo "alias_tags=${alias_tags[*]}" >> $GITHUB_OUTPUT
 
