@@ -45,7 +45,7 @@ jobs:
         shell: bash
         run: |
           # Set the image tag based on the branch name
-          if [[ "${{ github.event_name }} == "pull_request" ]]; then
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
               ARG_IMAGE_TAG="${{ github.head_ref }}"
           fi
 
