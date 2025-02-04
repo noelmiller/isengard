@@ -33,11 +33,11 @@ jobs:
         run: |
           TAG="stable"
 
-          if [[ github.event.number ]]; then
+          if [[ -n "${{ github.event.number }}" ]]; then
             TAG="pr-${{ github.event.number }}"
           fi
 
-          if [[ github.ref_name == "testing" ]]; then
+          if [[ "${{ github.ref_name }}" == "testing" ]]; then
             TAG="testing"
           fi
 
