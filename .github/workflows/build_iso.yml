@@ -37,6 +37,8 @@ jobs:
             TAG="testing"
           fi
 
+          echo ${{ github.ref_name }}
+
           if [[ github.event.number ]]; then
             TAG="pr-${{ github.event.number }}"
           fi
