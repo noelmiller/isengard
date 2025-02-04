@@ -60,10 +60,9 @@ jobs:
           COMMIT_TAGS+=("pr-${{ github.event.number }}")
           COMMIT_TAGS+=("${SHA_SHORT}")
 
-          TESTING_TAGS+=("testing-${VARIANT}")
           TESTING_TAGS+=("${SHA_SHORT}-${VARIANT}")
           TESTING_TAGS+=("${SHA_SHORT}")
-          TESTING_TAGS+=("testing")
+          TESTING_TAGS+=("${VARIANT}")
 
           BUILD_TAGS=("${VARIANT}")
 
@@ -73,10 +72,9 @@ jobs:
           done
 
           BUILD_TAGS+=("${TIMESTAMP}")
-          BUILD_TAGS+=("latest")
 
           if [[ "${{ github.ref_name }}" == "testing" ]]; then
-              echo "Generated the following build tags: "
+              echo "Generated the following testing tags: "
               for TAG in "${TESTING_TAGS[@]}"; do
                   echo "${TAG}"
               done
