@@ -57,6 +57,11 @@ jobs:
           COMMIT_TAGS+=("pr-${{ github.event.number }}")
           COMMIT_TAGS+=("${SHA_SHORT}")
 
+          TESTING_TAGS+=("testing-${VARIANT}")
+          TESTING_TAGS+=("${SHA_SHORT}-${VARIANT}")
+          TESTING_TAGS+=("${SHA_SHORT}")
+          TESTING_TAGS+=("testing")
+
           BUILD_TAGS=("${VARIANT}")
 
           # Append matching timestamp tags to keep a version history
@@ -66,6 +71,17 @@ jobs:
 
           BUILD_TAGS+=("${TIMESTAMP}")
           BUILD_TAGS+=("latest")
+
+          if [[ "${{ github.ref_name }}" == "testing" ]]; then
+              echo "Generated the following commit tags: "
+              for TAG in "${TESTING_TAGS[@]}"; do
+                  echo "${TAG}"
+              done
+
+              alias_tags=("${TESTING_TAGS[@]}")
+          else
+              alias_tags=("${BUILD_TAGS[@]}")
+          fi
 
           if [[ "${{ github.event_name }}" == "pull_request" ]]; then
               echo "Generated the following commit tags: "
