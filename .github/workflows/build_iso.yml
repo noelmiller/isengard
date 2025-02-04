@@ -33,7 +33,7 @@ jobs:
         run: |
           TAG="stable"
 
-          if [[ github.branch == "testing" ]]; then
+          if [[ github.ref_name == "testing" ]]; then
             TAG="testing"
           fi
 
