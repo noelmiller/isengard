@@ -10,7 +10,7 @@ concurrency:
 
 env:
   image_name: "isengard"
-  major_version: "40"
+  major_version: "41"
 
 jobs:
   build-iso:
@@ -37,11 +37,11 @@ jobs:
             TAG="testing"
           fi
 
-          echo ${{ github.ref_name }}
-
           if [[ github.event.number ]]; then
             TAG="pr-${{ github.event.number }}"
           fi
+
+          echo $TAG
 
           echo "tag=${TAG}" >> $GITHUB_OUTPUT
 
