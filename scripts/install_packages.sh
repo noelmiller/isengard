@@ -2,9 +2,6 @@
 
 set -ouex pipefail
 
-# install terra-release and terra-release-extras
-# dnf5 -y install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release{,-extras}
-
 sysadmin_packages=(
   "subscription-manager"
   "cockpit-navigator"
@@ -55,7 +52,7 @@ packages=(
 )
 
 # install rpms
-dnf5 install ${packages[@]}
+dnf5 install -y ${packages[@]}
 
 # install fzf-tab-completion
 git clone https://github.com/lincheney/fzf-tab-completion.git /usr/share/ublue-os/fzf-tab-completion
