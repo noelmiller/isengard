@@ -49,6 +49,11 @@ jobs:
               ARG_IMAGE_TAG="${{ github.head_ref }}"
           fi
 
+          # debug
+          echo "TAG and EVENT NAME"
+          echo "${{ env.ARG_IMAGE_TAG}}"
+          echo "${{ github.event_name }}"
+
           # Generate a timestamp for creating an image version history
           TIMESTAMP="$(date +%Y%m%d)"
           VARIANT="${{ env.ARG_IMAGE_TAG }}"
