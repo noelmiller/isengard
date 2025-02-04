@@ -28,8 +28,10 @@ programming_packages=(
   "zed"
 )
 
+# including firefox because vscode needs it
 utility_packages=(
   "cosmic-store"
+  "firefox"
   "syncthing"
   "stow"
   "scrcpy"

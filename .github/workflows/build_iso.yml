@@ -57,10 +57,12 @@ jobs:
           FLATPAK_DIR_SHORTNAME="flatpaks"
           echo "flatpak-dir-shortname=${FLATPAK_DIR_SHORTNAME}" >> $GITHUB_OUTPUT
 
+      # Get Bazzite and remove Firefox
       - name: Get Bazzite KDE Flatpaks
         shell: bash
         run: |
           curl --fail -L -o ${{ github.workspace }}/${{ steps.generate-flatpak-dir-shortname.outputs.flatpak-dir-shortname }}/bazzite_flatpaks https://raw.githubusercontent.com/ublue-os/bazzite/main/installer/kde_flatpaks/flatpaks
+          grep -v 'app/org.mozilla.firefox/x86_64/stable' ${{ github.workspace }}/${{ steps.generate-flatpak-dir-shortname.outputs.flatpak-dir-shortname }}/bazzite_flatpaks > ${{ github.workspace }}/${{ steps.generate-flatpak-dir-shortname.outputs.flatpak-dir-shortname }}/bazzite_flatpaks
       - name: Determine Flatpak Dependencies
         id: flatpak_dependencies
         shell: bash
