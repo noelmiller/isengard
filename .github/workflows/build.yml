@@ -52,6 +52,9 @@ jobs:
               echo ARG_IMAGE_TAG="${{ github.head_ref }}" >> $GITHUB_ENV
           fi
 
+          echo "ARG_IMAGE_TAG = ${{ env.ARG_IMAGE_TAG }}"
+          echo "GITHUB HEAD REF = ${{ github.head_ref }}"
+
           # Generate a timestamp for creating an image version history
           TIMESTAMP="$(date +%Y%m%d)"
           VARIANT="${{ env.ARG_IMAGE_TAG }}"
