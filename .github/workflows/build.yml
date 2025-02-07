@@ -49,11 +49,10 @@ jobs:
         shell: bash
         run: |
           if [[ "${{ github.event_name }}" == "pull_request" ]]; then
-              echo ARG_IMAGE_TAG="${{ github.base_ref }}" >> $GITHUB_ENV
+              if [[ "${{ github.base_ref}}" == "main" ]]; then
+                  echo ARG_IMAGE_TAG="stable" >> $GITHUB_ENV
+              fi
           fi
-
-          echo "ARG_IMAGE_TAG = ${{ env.ARG_IMAGE_TAG }}"
-          echo "GITHUB BASE REF = ${{ github.base_ref }}"
 
           # Generate a timestamp for creating an image version history
           TIMESTAMP="$(date +%Y%m%d)"
