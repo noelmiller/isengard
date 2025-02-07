@@ -49,7 +49,9 @@ jobs:
         shell: bash
         run: |
           if [[ "${{ github.event_name }}" == "pull_request" ]]; then
-              echo ARG_IMAGE_TAG="${{ github.head_ref }}" >> $GITHUB_ENV
+              if [[ "${{ github.base_ref}}" == "main" ]]; then
+                  echo ARG_IMAGE_TAG="stable" >> $GITHUB_ENV
+              fi
           fi
 
           # Generate a timestamp for creating an image version history
@@ -202,7 +204,6 @@ jobs:
   build_iso:
     name: build iso
     needs: [push-ghcr]
-    # Add [ISO] to the end of your PR title to build an ISO
-    if: ${{ endsWith(github.event.pull_request.title, '[ISO]') }} || ${{ github.ref_name }} == "testing"
+    if: ${{ github.event_name == 'pull_request' && endsWith(github.event.pull_request.title, '[ISO]') || github.ref_name == 'testing' }}
     uses: ./.github/workflows/build_iso.yml
     secrets: inherit
