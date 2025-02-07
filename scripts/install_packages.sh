@@ -32,6 +32,7 @@ programming_packages=(
 utility_packages=(
   "cosmic-store"
   "firefox"
+  "keyd"
   "syncthing"
   "stow"
   "scrcpy"
