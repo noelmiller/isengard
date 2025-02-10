@@ -190,7 +190,7 @@ jobs:
             --disable-content-trust
 
       # Sign container
-      - uses: sigstore/cosign-installer@v3.7.0
+      - uses: sigstore/cosign-installer@v3.8.0
 
       - name: Sign container image
         shell: bash
