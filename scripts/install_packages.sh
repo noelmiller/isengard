@@ -33,6 +33,7 @@ utility_packages=(
   "cosmic-store"
   "firefox"
   "keyd"
+  "neohtop"
   "syncthing"
   "stow"
   "scrcpy"
