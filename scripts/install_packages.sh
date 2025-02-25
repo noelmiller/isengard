@@ -2,6 +2,12 @@
 
 set -ouex pipefail
 
+# Configure Repositories
+rpm --import https://releases.warp.dev/linux/keys/warp.asc
+sh -c 'echo -e "[warpdotdev]\nname=warpdotdev\nbaseurl=https://releases.warp.dev/linux/rpm/stable\nenabled=1\ngpgcheck=1\ngpgkey=https://releases.warp.dev/linux/keys/warp.asc" > /etc/yum.repos.d/warpdotdev.repo'
+
+# Packages
+
 sysadmin_packages=(
   "subscription-manager"
   "cockpit-navigator"
@@ -25,19 +31,17 @@ programming_packages=(
   "gh"
   "insync"
   "nodejs"
-  "zed"
+  "warp-terminal"
 )
 
 # including firefox because vscode needs it
 utility_packages=(
-  "cosmic-store"
   "firefox"
   "keyd"
   "neohtop"
   "syncthing"
   "stow"
   "scrcpy"
-  "waypipe"
 )
 
 docker_packages=(
@@ -59,4 +63,4 @@ packages=(
 dnf5 install -y ${packages[@]}
 
 # install fzf-tab-completion
-git clone https://github.com/lincheney/fzf-tab-completion.git /usr/share/ublue-os/fzf-tab-completion
+# git clone https://github.com/lincheney/fzf-tab-completion.git /usr/share/ublue-os/fzf-tab-completion
