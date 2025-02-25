@@ -27,3 +27,9 @@ mv /var/opt/warpdotdev /usr/lib/warpdotdev # move this over here
 # Create a symlink /usr/bin/warp-terminal => /opt/warpdotdev/warp-terminal/warp
 rm /usr/bin/warp-terminal
 ln -s /opt/warpdotdev/warp-terminal/warp /usr/bin/warp-terminal
+
+# Register path symlink
+# We do this via tmpfiles.d so that it is created by the live system.
+cat >/usr/lib/tmpfiles.d/warpdotdev.conf <<EOF
+L  /opt/warpdotdev  -  -  -  -  /usr/lib/warpdotdev
+EOF
