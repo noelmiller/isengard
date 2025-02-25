@@ -24,6 +24,6 @@ dnf5 -y install warp-terminal
 # And then we do the hacky dance!
 mv /var/opt/warpdotdev /usr/lib/warpdotdev # move this over here
 
-# Create a symlink /usr/bin/1password => /opt/1Password/1password
+# Create a symlink /usr/bin/warp-terminal => /opt/warpdotdev/warp-terminal/warp
 rm /usr/bin/warp-terminal
 ln -s /opt/warpdotdev/warp-terminal/warp /usr/bin/warp-terminal
