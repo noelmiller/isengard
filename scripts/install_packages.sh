@@ -2,10 +2,6 @@
 
 set -ouex pipefail
 
-# Configure Repositories
-rpm --import https://releases.warp.dev/linux/keys/warp.asc
-sh -c 'echo -e "[warpdotdev]\nname=warpdotdev\nbaseurl=https://releases.warp.dev/linux/rpm/stable\nenabled=1\ngpgcheck=1\ngpgkey=https://releases.warp.dev/linux/keys/warp.asc" > /etc/yum.repos.d/warpdotdev.repo'
-
 # Packages
 
 sysadmin_packages=(
@@ -31,7 +27,6 @@ programming_packages=(
   "gh"
   "insync"
   "nodejs"
-  "warp-terminal"
 )
 
 # including firefox because vscode needs it
