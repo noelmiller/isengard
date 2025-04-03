@@ -54,15 +54,11 @@ packages=(
   ${docker_packages[@]}
 )
 
-# install rpms
-dnf5 install -y ${packages[@]}
-
-# install tana
-# Funny option using a bug in gh cli
-# GH_HOST=foobar gh release download --repo github.com/tanainc/tana-desktop-releases --pattern '*.rpm'
-
-# using curl
+# download tana rpm
 curl -L -O -# $(curl --silent https://api.github.com/repos/tanainc/tana-desktop-releases/releases | jq -r '.[0].assets[] | select(.name | endswith(".rpm")) | .browser_download_url')
 
-dnf5 install -y ./tana*.rpm
+# install rpms
+dnf5 install -y ${packages[@]} ./tana*.rpm
+
+# remove local tana rpm
 rm -f ./tana*.rpm
