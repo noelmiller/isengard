@@ -57,5 +57,8 @@ packages=(
 # install rpms
 dnf5 install -y ${packages[@]}
 
-# install fzf-tab-completion
-# git clone https://github.com/lincheney/fzf-tab-completion.git /usr/share/ublue-os/fzf-tab-completion
+# install tana
+gh release download --repo tanainc/tana-desktop-releases --pattern '*.rpm'
+
+dnf5 install -y ./tana*.rpm
+rm -f ./tana*.rpm
