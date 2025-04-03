@@ -54,8 +54,11 @@ packages=(
   ${docker_packages[@]}
 )
 
-# install rpms
-dnf5 install -y ${packages[@]}
+# download tana rpm
+curl -L -O -# $(curl --silent https://api.github.com/repos/tanainc/tana-desktop-releases/releases | jq -r '.[0].assets[] | select(.name | endswith(".rpm")) | .browser_download_url')
 
-# install fzf-tab-completion
-# git clone https://github.com/lincheney/fzf-tab-completion.git /usr/share/ublue-os/fzf-tab-completion
+# install rpms
+dnf5 install -y ${packages[@]} ./tana*.rpm
+
+# remove local tana rpm
+rm -f ./tana*.rpm
