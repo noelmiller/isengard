@@ -58,7 +58,7 @@ packages=(
 dnf5 install -y ${packages[@]}
 
 # install tana
-gh release download --repo tanainc/tana-desktop-releases --pattern '*.rpm'
+GH_HOST=foobar gh release download --repo github.com/tanainc/tana-desktop-releases --pattern '*.rpm'
 
 dnf5 install -y ./tana*.rpm
 rm -f ./tana*.rpm
