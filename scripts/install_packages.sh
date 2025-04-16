@@ -61,6 +61,8 @@ curl -o akmod-v4l2loopback-0.13.2-2.fc42.x86_64.rpm https://koji.rpmfusion.org/k
 dnf5 remove v4l2loopback -y
 dnf5 install -y ./v4l2loopback-0.13.2-4.fc42.x86_64.rpm ./akmod-v4l2loopback-0.13.2-2.fc42.x86_64.rpm 
 akmods --force --kernels "${KERNEL}" --kmod v4l2loopback
+modinfo /usr/lib/modules/${KERNEL}/extra/v4l2loopback/v4l2loopback.ko.xz > /dev/null \
+  || (find /var/cache/akmods/v4l2loopback/ -name \*.log -print -exec cat {} \; && exit 1)
 
 
 # install rpms
