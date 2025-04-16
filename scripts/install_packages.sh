@@ -55,10 +55,12 @@ packages=(
 )
 
 # v4l2loopback
+KERNEL="$(rpm -q "kernel" --queryformat '%{VERSION}-%{RELEASE}.%{ARCH}')"
 curl -o v4l2loopback-0.13.2-4.fc42.x86_64.rpm https://koji.rpmfusion.org/kojifiles/packages/v4l2loopback/0.13.2/4.fc42/x86_64/v4l2loopback-0.13.2-4.fc42.x86_64.rpm
 curl -o akmod-v4l2loopback-0.13.2-2.fc42.x86_64.rpm https://koji.rpmfusion.org/kojifiles/packages/v4l2loopback-kmod/0.13.2/2.fc42/x86_64/akmod-v4l2loopback-0.13.2-2.fc42.x86_64.rpm
 dnf5 remove v4l2loopback -y
 dnf5 install -y ./v4l2loopback-0.13.2-4.fc42.x86_64.rpm ./akmod-v4l2loopback-0.13.2-2.fc42.x86_64.rpm 
+akmods --force --kernels "${KERNEL}" --kmod v4l2loopback
 
 
 # install rpms
