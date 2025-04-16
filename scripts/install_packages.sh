@@ -5,6 +5,7 @@ set -ouex pipefail
 # Packages
 
 sysadmin_packages=(
+  "subscription-manager"
   "cockpit-navigator"
   "cockpit-bridge"
   "cockpit-system"
