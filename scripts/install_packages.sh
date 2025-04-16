@@ -76,9 +76,8 @@ exec /usr/bin/uname \$@
 EOF
 install -Dm0755 /tmp/fake-uname /tmp/bin/uname
 
-git clone https://github.com/v4l2loopback/v4l2loopback.git v4l2loopback
-cd v4l2loopback
-git switch origin/v0.13.2
+curl -fSsL https://github.com/v4l2loopback/v4l2loopback/archive/refs/tags/v0.13.2.tar.gz | tar xfz - 
+cd v4l2loopback-0.13.2
 PATH=/tmp/bin:$PATH make
 PATH=/tmp/bin:$PATH make install
 PATH=/tmp/bin:$PATH depmod -a
