@@ -55,15 +55,33 @@ packages=(
 )
 
 # v4l2loopback
-KERNEL="$(rpm -q "kernel" --queryformat '%{VERSION}-%{RELEASE}.%{ARCH}')"
-curl -o v4l2loopback-0.13.2-4.fc42.x86_64.rpm https://koji.rpmfusion.org/kojifiles/packages/v4l2loopback/0.13.2/4.fc42/x86_64/v4l2loopback-0.13.2-4.fc42.x86_64.rpm
-curl -o akmod-v4l2loopback-0.13.2-2.fc42.x86_64.rpm https://koji.rpmfusion.org/kojifiles/packages/v4l2loopback-kmod/0.13.2/2.fc42/x86_64/akmod-v4l2loopback-0.13.2-2.fc42.x86_64.rpm
 dnf5 remove v4l2loopback -y
-dnf5 install -y ./v4l2loopback-0.13.2-4.fc42.x86_64.rpm ./akmod-v4l2loopback-0.13.2-2.fc42.x86_64.rpm 
-akmods --force --kernels "${KERNEL}" --kmod v4l2loopback
-modinfo /usr/lib/modules/${KERNEL}/extra/v4l2loopback/v4l2loopback.ko.xz > /dev/null \
-  || (find /var/cache/akmods/v4l2loopback/ -name \*.log -print -exec cat {} \; && exit 1)
 
+KERNEL_SUFFIX=""
+QUALIFIED_KERNEL="$(rpm -qa | grep -P 'kernel-(|'"$KERNEL_SUFFIX"'-)(\d+.\d+.\d+)' | sed -E 's/kernel-(|'"$KERNEL_SUFFIX"'-)//' | tail -n 1)"
+
+dnf -y install "kernel-devel-$QUALIFIED_KERNEL" "kernel-devel-matched-$QUALIFIED_KERNEL" "kernel-headers-$QUALIFIED_KERNEL"  dkms gcc-c++
+
+# The nvidia-open driver tries to use the kernel from the host. (uname -r), just override it and let it do whatever otherwise
+# FIXME: remove this workaround please at some point
+cat >/tmp/fake-uname <<EOF
+#!/usr/bin/env bash
+
+if [ "\$1" == "-r" ] ; then
+  echo ${QUALIFIED_KERNEL}
+  exit 0
+fi
+
+exec /usr/bin/uname \$@
+EOF
+install -Dm0755 /tmp/fake-uname /tmp/bin/uname
+
+git clone https://github.com/v4l2loopback/v4l2loopback.git v4l2loopback
+cd v4l2loopback
+git switch origin/v0.13.2
+PATH=/tmp/bin:$PATH make
+PATH=/tmp/bin:$PATH make install
+PATH=/tmp/bin:$PATH depmod -a
 
 # install rpms
 dnf5 install -y ${packages[@]}
