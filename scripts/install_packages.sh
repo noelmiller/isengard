@@ -60,7 +60,7 @@ dnf5 remove v4l2loopback -y
 KERNEL_SUFFIX=""
 QUALIFIED_KERNEL="$(rpm -qa | grep -P 'kernel-(|'"$KERNEL_SUFFIX"'-)(\d+.\d+.\d+)' | sed -E 's/kernel-(|'"$KERNEL_SUFFIX"'-)//' | tail -n 1)"
 
-dnf -y install "kernel-devel-$QUALIFIED_KERNEL" "kernel-devel-matched-$QUALIFIED_KERNEL" "kernel-headers-$QUALIFIED_KERNEL"  dkms gcc-c++
+dnf -y install dkms gcc-c++
 
 # The nvidia-open driver tries to use the kernel from the host. (uname -r), just override it and let it do whatever otherwise
 # FIXME: remove this workaround please at some point
