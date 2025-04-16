@@ -54,11 +54,5 @@ packages=(
   ${docker_packages[@]}
 )
 
-# download tana rpm
-curl -L -O -# $(curl --silent https://api.github.com/repos/tanainc/tana-desktop-releases/releases | jq -r '.[0].assets[] | select(.name | endswith(".rpm")) | .browser_download_url')
-
 # install rpms
-dnf5 install -y ${packages[@]} ./tana*.rpm
-
-# remove local tana rpm
-rm -f ./tana*.rpm
+dnf5 install -y ${packages[@]}
