@@ -56,3 +56,5 @@ packages=(
 
 # install rpms
 dnf5 install -y ${packages[@]}
+dnf5 remove v4l2loopback -y
+dnf5 install -y v4l2loopback-0.13.2-4
