@@ -43,7 +43,6 @@ obs_packages=(
   "obs-studio"
   "obs-studio-plugin-vaapi"
   "obs-studio-plugin-webkitgtk"
-  "obs-studio-plugin-vkcapture"
 )
 
 docker_packages=(
