@@ -61,5 +61,5 @@ packages=(
 )
 
 # install rpms
-dnf5 install --enablerepo=updates-testing --refresh ${obs_packages[@]}
 dnf5 install -y ${packages[@]}
+dnf5 install -y --enablerepo=updates-testing --refresh ${obs_packages[@]}
