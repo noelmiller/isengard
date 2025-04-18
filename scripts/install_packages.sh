@@ -39,6 +39,12 @@ utility_packages=(
   "scrcpy"
 )
 
+obs_packages=(
+  "obs-studio"
+  "obs-studio-plugin-vaapi"
+  "obs-studio-plugin-webkitgtk"
+)
+
 docker_packages=(
   "docker-ce"
   "docker-ce-cli"
@@ -56,3 +62,4 @@ packages=(
 
 # install rpms
 dnf5 install -y ${packages[@]}
+dnf5 install -y --enablerepo=updates-testing --refresh ${obs_packages[@]}
