@@ -41,6 +41,7 @@ utility_packages=(
 
 obs_packages=(
   "obs-studio"
+  "obs-studio-plugin-droidcam"
   "obs-studio-plugin-vaapi"
   "obs-studio-plugin-webkitgtk"
 )
