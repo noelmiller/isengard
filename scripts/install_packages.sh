@@ -25,6 +25,7 @@ sysadmin_packages=(
 programming_packages=(
   "code"
   "gh"
+  "git-lfs"
   "insync"
   "nodejs"
 )
