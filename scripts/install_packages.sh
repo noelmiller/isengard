@@ -1,5 +1,7 @@
 #!/bin/bash
 
+dnf5 -y config-manager setopt "terra".enabled=true
+
 set -ouex pipefail
 
 # Packages
@@ -60,8 +62,10 @@ packages=(
   ${programming_packages[@]}
   ${utility_packages[@]}
   ${docker_packages[@]}
+  ${obs_packages[@]}
 )
 
 # install rpms
 dnf5 install -y ${packages[@]}
-dnf5 install -y --enablerepo=updates-testing --refresh ${obs_packages[@]}
+
+dnf5 -y config-manager setopt "terra".enabled=true
