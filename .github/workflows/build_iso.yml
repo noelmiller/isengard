@@ -25,7 +25,7 @@ jobs:
         uses: jlumbroso/free-disk-space@v1.3.1
 
       - name: Checkout Repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set Image Tag
         id: generate-tag
